@@ -9,9 +9,9 @@ const DashboardLayout = () => {
             <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
 
             {/* ================= Main Content ================= */}
-            <div className="drawer-content flex flex-col lg:hidden">
+            <div className="drawer-content flex flex-col ">
                 {/* Navbar */}
-                <div className="navbar bg-base-300 px-4">
+                <div className="navbar bg-base-300 px-4 lg:hidden">
                     {/* 3-dot button (Mobile only) */}
                     <div className="lg:hidden">
                         <label
