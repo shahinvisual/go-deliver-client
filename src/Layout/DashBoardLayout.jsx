@@ -1,6 +1,7 @@
 import React from "react";
 import { SiPlatformdotsh } from "react-icons/si";
-import { Outlet } from "react-router";
+import { Link, Outlet } from "react-router";
+import GoDeliverLogo from "../Pages/Shared/GoDeliverLogo/GoDeliverLogo";
 
 const DashboardLayout = () => {
     return (
@@ -36,13 +37,14 @@ const DashboardLayout = () => {
 
                 <aside className="w-80 min-h-full bg-base-200 p-4">
                     <h2 className="text-xl font-semibold mb-4">
-                        Sidebar Menu
+                        <GoDeliverLogo />
                     </h2>
 
                     <ul className="menu gap-1">
                         <li><a>Dashboard</a></li>
                         <li><a>Orders</a></li>
                         <li><a>Users</a></li>
+                        <li><Link to={'myParcels'}>my parcels</Link></li>
                         <li><a>Settings</a></li>
                     </ul>
                 </aside>
