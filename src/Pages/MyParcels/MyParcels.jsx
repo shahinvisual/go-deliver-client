@@ -2,10 +2,12 @@ import { useQuery } from '@tanstack/react-query';
 import useAuth from '../../Hooks/useAuth';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router';
 
 const MyParcels = () => {
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
+    const navigate = useNavigate();
     const { data: parcels = [], refetch } = useQuery({
         queryKey: ['myParcels', user.email],
         queryFn: async () => {
@@ -19,8 +21,9 @@ const MyParcels = () => {
         console.log("View:", parcel);
     };
 
-    const handlePay = (parcel) => {
-        console.log("Pay:", parcel);
+    const handlePay = (id) => {
+        console.log("Pay:", id);
+        navigate(`/dashboard/payment/${id}`)
     };
 
     // Parcel Delete confirmed==============================
@@ -133,7 +136,7 @@ const MyParcels = () => {
                                     </button>
 
                                     <button
-                                        onClick={() => handlePay(parcel)}
+                                        onClick={() => handlePay(parcel._id)}
                                         disabled={parcel.payment_status === "paid"}
                                         className="btn btn-xs btn-outline btn-success"
                                     >
